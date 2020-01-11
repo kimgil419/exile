@@ -76,6 +76,12 @@ public class EgovSampleController {
 	 * @return "egovSampleList"
 	 * @exception Exception
 	 */
+	
+	@RequestMapping(value = "main.do")
+	public String initMain() throws Exception {
+
+		return "main.do"; // web-inf 안에 jsp파일에 example에 main폴더안에 main.jsp로 간다.
+	}
 	@RequestMapping(value = "/egovSampleList.do")
 	public String selectSampleList(@ModelAttribute("searchVO") SampleDefaultVO searchVO, ModelMap model) throws Exception {
 

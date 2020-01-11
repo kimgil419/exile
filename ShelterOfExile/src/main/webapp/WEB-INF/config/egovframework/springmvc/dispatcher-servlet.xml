@@ -44,7 +44,7 @@
         </property>
     </bean>
 
-    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2"
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"
 	    p:prefix="/WEB-INF/jsp/egovframework/example/" p:suffix=".jsp"/>
 
@@ -59,6 +59,18 @@
         </property>
     </bean>
 	<!-- /For Pagination Tag -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+  		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+  		<property name="order" value="1" />
+	</bean>
 
+ 	<!-- Tiles 2 Configurer -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+  		<property name="definitions">
+   			<list>
+    			<value>/WEB-INF/tiles/default-layout.xml</value>
+   			</list>
+  		</property>
+	</bean>
     <mvc:view-controller path="/cmmn/validator.do" view-name="cmmn/validator"/>
 </beans>
